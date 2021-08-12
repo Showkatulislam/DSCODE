@@ -9,7 +9,7 @@ void revarse(char a[]){
     printf("%d\n",i);
     for(j=0;i>=0;j++,i--)
     {
-          b[i]=a[j];
+          b[j]=a[i];
     }
     b[i]='\0';
     printf("%s",b);
@@ -19,7 +19,6 @@ int main()
 {
     int i;
     char a[9]="showkatul";
-    char *b;
     revarse(a);
 
 }
