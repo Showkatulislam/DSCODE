@@ -1,17 +1,11 @@
 #include<stdio.h>
-typedef struct Tree tree;
-struct  Tree{
-    int data;
-    tree *lchild;
-    tree *rchild;
-};
 typedef struct Node node;
 struct Node{
-    tree *data;
+    int data;
     node *next;
 }*head=NULL,*tail=NULL;
 
-void InsertStart(tree  *data){
+void InsertStart(int  *data){
     node *temp;
     temp=(node*)malloc(sizeof(node));
     temp->data=data;
@@ -23,7 +17,7 @@ void InsertStart(tree  *data){
         head=temp;
     }
 }
-void insertTail(tree *data){
+void insertTail(int *data){
     node *temp;
     temp=(node*)malloc(sizeof(node));
     temp->data=data;
@@ -36,19 +30,19 @@ void insertTail(tree *data){
         tail=temp;
     }
 }
-tree *DeleteStart(){
+int DeleteStart(){
     node *p;
-    tree *x=NULL;
+    int x=-1;
     p=head;
     x=p->data;
     head=head->next;
     free(p);
     return x;
 }
-void enqueue(tree *p){
+void enqueue(int p){
     insertTail(p);
 }
-tree *dequeue()
+int dequeue()
 {
     return DeleteStart();
 }
@@ -58,10 +52,10 @@ int isEmpty(){
     else
         return 0;
 }
-void push(tree *p){
+void push(int p){
     InsertStart(p);
 }
-tree *pop()
+int pop()
 {
     return DeleteStart();
 }
@@ -74,5 +68,3 @@ void display(){
     }
     printf("\n");
 }
-
-
